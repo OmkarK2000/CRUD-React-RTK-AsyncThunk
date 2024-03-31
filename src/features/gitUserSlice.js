@@ -63,7 +63,14 @@ export const gitUserSlice = createSlice({
   initialState : {
     users : [],
     loading : false,
-    error : null
+    error : null,
+    searchData : "",
+  },
+  reducers : {
+    searchUser : (state, action)=>{
+      console.log(action.payload)
+      state.searchData = action.payload
+    }
   },
   extraReducers(builder){
     builder 
@@ -120,4 +127,5 @@ export const gitUserSlice = createSlice({
   }
 })
 
+export const {searchUser} = gitUserSlice.actions;
 export default gitUserSlice.reducer;
